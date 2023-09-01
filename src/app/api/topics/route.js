@@ -13,8 +13,8 @@ export async function POST(request){
 //this route handler returns all the drinks form mongodb
 export async function GET(){
     await connectMongoDB();
-    const topic = await Topic.find();
-    return NextResponse.json({topic})
+    const topics = await Topic.find();
+    return NextResponse.json({topics})
 
 }
 
@@ -23,6 +23,6 @@ export async function DELETE(request){
     const id = request.nextUrl.searchParams.get('id');
     await connectMongoDB();
     await Topic.findByIdAndDelete(id); //this is a mongoose built in function
-    NextResponse.json({message:'Topic delted'}, {status: 200})
+    return NextResponse.json({message:'Topic deleted'}, {status: 200})
 
 }

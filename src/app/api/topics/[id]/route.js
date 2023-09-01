@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import connectMongoDB from "../../../../../libs/mongodb";
 import Topic from "../../../../../models/topic";
 //used to update drinks
-export default async function PUT (request, {params}){
+// these functions are not created using the default syntax
+export async function PUT (request, {params}){
     const {id} = params;
     const {newDrink: drink, newDescription: description} = await request.json()
     await connectMongoDB();

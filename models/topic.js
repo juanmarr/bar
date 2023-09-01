@@ -8,7 +8,7 @@ const topicSchema = new Schema(
     {
         timestamps: true,
     }
-)
+);
 //if already have model then jhust get Topic
 const Topic = mongoose.models.Topic || mongoose.model("Topic", topicSchema);
 
